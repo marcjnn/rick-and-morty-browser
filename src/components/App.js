@@ -1,11 +1,7 @@
 import "../style/components/App.scss";
 
 const App = () => {
-  return (
-    <main>
-      <p>A Gruffalo? What's a Gruffalo?</p>
-    </main>
-  );
+  return <p>A mouse took a stroll throught the deep dark wood...</p>;
 };
 
 export default App;

@@ -1,2 +1,0 @@
-(this["webpackJsonpmy-react-project"]=this["webpackJsonpmy-react-project"]||[]).push([[0],{10:function(t,e,c){"use strict";c.r(e);var n=c(1),r=c.n(n),o=c(3),a=c.n(o),s=(c(8),c(0)),i=function(){return Object(s.jsx)("main",{children:Object(s.jsx)("p",{children:"A Gruffalo? What's a Gruffalo?"})})};a.a.render(Object(s.jsx)(r.a.StrictMode,{children:Object(s.jsx)(i,{})}),document.getElementById("root"))},8:function(t,e,c){}},[[10,1,2]]]);
-//# sourceMappingURL=main.60890eaa.chunk.js.map
