@@ -1,3 +1,7 @@
+// React
+import { Link } from "react-router-dom";
+
+// components
 import CharacterCard from "./CharacterCard";
 
 const CharacterList = (props) => {
@@ -5,7 +9,9 @@ const CharacterList = (props) => {
   const characterList = props.characters.map((character) => {
     return (
       <li key={character.id}>
-        <CharacterCard character={character} />
+        <Link to={`/${character.route}`}>
+          <CharacterCard character={character} />
+        </Link>
       </li>
     );
   });

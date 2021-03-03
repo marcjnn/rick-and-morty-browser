@@ -1,10 +1,10 @@
 const CharacterCard = (props) => {
-  console.log(props);
+  const character = props.character;
   return (
     <article>
-      <img src={props.character.image} alt={props.character.name} />
-      <h2>{props.character.name}</h2>
-      <p>{props.character.species}</p>
+      <img src={character.image} alt={character.name} />
+      <h2>{character.name}</h2>
+      <p>{character.species}</p>
     </article>
   );
 };

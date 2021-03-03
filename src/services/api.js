@@ -3,7 +3,7 @@ const ENDPOINT = "https://rickandmortyapi.com/api/character";
 let fetchCharacters = async () => {
   const response = await fetch(ENDPOINT);
   const data = await response.json();
-  // console.log(data.results);
+  console.log("hago fetch a api");
   return data.results.map((character) => {
     return {
       id: character.id.toString(),
@@ -13,6 +13,7 @@ let fetchCharacters = async () => {
       origin: character.origin.name,
       image: character.image,
       episodes: character.episode.length,
+      route: character.name.split(" ").join("-").toLowerCase(),
     };
   });
 };
