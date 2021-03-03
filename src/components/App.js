@@ -16,13 +16,13 @@ const App = () => {
   // fetch data; asynchronus
   useEffect(async () => {
     const data = await api.fetchCharacters();
-    console.log(data);
+    setCharacters(data);
   }, []);
 
   return (
     <main>
       {/* <Filters /> */}
-      <CharacterList />
+      <CharacterList characters={characters} />
     </main>
   );
 };
