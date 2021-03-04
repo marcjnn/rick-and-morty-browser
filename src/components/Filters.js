@@ -6,8 +6,8 @@ const Filters = (props) => {
   const handleSubmit = (ev) => {
     ev.preventDefault();
   };
-  console.log(props);
-  console.log(props.filters);
+  // console.log(props);
+  // console.log(props.filters);
 
   return (
     <form onSubmit={handleSubmit} action="" methog="">

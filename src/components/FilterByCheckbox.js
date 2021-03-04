@@ -1,10 +1,9 @@
 const FilterByCheckbox = (props) => {
-  console.log(props);
+  // console.log(props);
   const handleChange = (ev) => {
     props.filterResults({ key: props.filter, value: ev.target.value });
   };
   const items = props.filterby.map((item, index) => {
-    console.log(item);
     return (
       <li key={index}>
         <label htmlFor={item}>

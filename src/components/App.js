@@ -65,9 +65,7 @@ const App = () => {
 
       const remove = () => {
         const newArr = [...filters[inputData.key]];
-        console.log(newArr);
         newArr.splice(indexOf, 1);
-        console.log(newArr);
         return setFilters({ ...filters, [inputData.key]: newArr });
       };
 
@@ -118,7 +116,20 @@ const App = () => {
   //   }
   // };
 
+  const sortResults = (a, b) => {
+    const nameA = a.name.toLowerCase();
+    const nameB = b.name.toLowerCase();
+    if (nameA < nameB) {
+      return -1;
+    }
+    if (nameA > nameB) {
+      return 1;
+    }
+    return;
+  };
+
   const searchResults = characters
+    .sort(sortResults)
     .filter((character) =>
       character.name.toLowerCase().includes(filters.name.toLowerCase())
     )
@@ -160,7 +171,7 @@ const App = () => {
       <Switch>
         <Route exact path="/">
           <Filters
-          filters={filters}
+            filters={filters}
             // filterByName={filterByName}
             inputValue={filters.name}
             status={getStatus()}
