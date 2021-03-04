@@ -46,25 +46,21 @@ const App = () => {
   };
 
   const filterBy = (inputData) => {
-    console.log(inputData);
     // console.log(inputData);
-    // if (inputData.key === "species") {
-    //   const indexSpecie = species.indexOf(inputData.value);
-    //   console.log(indexSpecie);
-    //   if (indexSpecie === -1) {
-    //     setSpecies([...species, inputData.value]);
-    //   } else {
-    //     const newSpecies = [...species];
-    //     newSpecies.splice(indexSpecie, 1);
-    //     setSpecies(newSpecies);
-    //   }
-    if (inputData.key === "status") {
+    if (inputData.key === "species") {
+      const indexSpecie = species.indexOf(inputData.value);
+      if (indexSpecie === -1) {
+        setSpecies([...species, inputData.value]);
+      } else {
+        const newSpecies = [...species];
+        newSpecies.splice(indexSpecie, 1);
+        setSpecies(newSpecies);
+      }
+    } else if (inputData.key === "status") {
       const indexStatus = status.indexOf(inputData.value);
-      console.log(indexStatus);
       if (indexStatus === -1) {
         setStatus([...status, inputData.value]);
       } else {
-        // debugger;
         const newStatus = [...status];
         newStatus.splice(indexStatus, 1);
         setStatus(newStatus);
@@ -72,52 +68,19 @@ const App = () => {
     }
   };
 
-  console.log(species);
-  console.log(status);
-
-  // start dayani
-
-  // const indexCity = cities.indexOf(inputChange.value);
-  // if (indexCity === -1) {
-  //   const newCities = [...cities, inputChange.value];
-  //   setCities(newCities);
-  // } else {
-  //   /*const newCities = [...cities];
-  //         newCities.splice(indexCity,1);*/
-  //   // const newCities = cities.filter(city =>{
-  //   //   return city !==inputChange.value;
-  //   // })
-  //   setCities(newCities);
-  // }
-
-  // end dayani
+  // console.log(species);
+  // console.log(status);
 
   const searchResults = characters
     .filter((character) =>
       character.name.toLowerCase().includes(name.toLowerCase())
     )
-    // .filter((character) => {
-    //   if (species.length === 0) {
-    //     return true;
-    //   } else {
-    //     return species.includes(character.species);
-    //   }
-    // });
     .filter((character) => {
       return species.length === 0 ? true : species.includes(character.species);
     })
     .filter((character) => {
-      return status.length === 0 ? true : species.includes(character.species);
+      return status.length === 0 ? true : status.includes(character.status);
     });
-
-  //   .filter(user=>{
-  //     if(cities.length === 0){
-  //       return true;
-  //     }
-  //     else{
-  //       return cities.includes(user.city);
-  //     }
-  // })
 
   const getSpecies = () => {
     const species = characters.map((character) => character.species);
@@ -129,7 +92,7 @@ const App = () => {
     return [...new Set(status)];
   };
 
-  // console.log(searchResults);
+  console.log(searchResults);
   return (
     <main>
       <img src={logo} alt="Rick and Morty logo" />
