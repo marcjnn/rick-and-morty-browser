@@ -80,7 +80,7 @@ const App = () => {
 
   // console.log(status);
   // console.log(species);
-  console.log(origin);
+  // console.log(origin);
 
   const searchResults = characters
     .filter((character) =>
@@ -111,7 +111,7 @@ const App = () => {
     return [...new Set(origin)];
   };
 
-  console.log(searchResults);
+  // console.log(searchResults);
   return (
     <main>
       <img src={logo} alt="Rick and Morty logo" />
@@ -125,7 +125,7 @@ const App = () => {
             origin={getOrigin()}
             filterBy={filterBy}
           />
-          <CharacterList searchResults={searchResults} searchValue={name} />
+          <CharacterList searchResults={searchResults} />
         </Route>
         <Route path="/characters/:route" render={renderCharacterDetails} />
       </Switch>
