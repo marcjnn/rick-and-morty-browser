@@ -23,7 +23,11 @@ const Filters = (props) => {
         filterby={props.species}
         filterToApply={props.filterBy}
       />
-      {/* <FilterByCheckbox filter={"origin"} /> */}
+      <FilterByCheckbox
+        filter={"origin"}
+        filterby={props.origin}
+        filterToApply={props.filterBy}
+      />
     </form>
   );
 };

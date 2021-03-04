@@ -20,6 +20,7 @@ const App = () => {
   const [name, setName] = useState("");
   const [status, setStatus] = useState([]);
   const [species, setSpecies] = useState([]);
+  const [origin, setOrigin] = useState([]);
 
   // fetch data; asynchronus
   // "useEffect function must return a cleanup function or nothing. Promises and useEffect(async () => ...) are not supported, but you can call an async function inside an effect... That's why using async directly in the useEffect function isn't allowed"
@@ -65,11 +66,21 @@ const App = () => {
         newStatus.splice(indexStatus, 1);
         setStatus(newStatus);
       }
+    } else if (inputData.key === "origin") {
+      const indexOrigin = origin.indexOf(inputData.value);
+      if (indexOrigin === -1) {
+        setOrigin([...origin, inputData.value]);
+      } else {
+        const newOrigin = [...origin];
+        newOrigin.splice(indexOrigin, 1);
+        setOrigin(newOrigin);
+      }
     }
   };
 
-  // console.log(species);
   // console.log(status);
+  // console.log(species);
+  console.log(origin);
 
   const searchResults = characters
     .filter((character) =>
@@ -80,6 +91,9 @@ const App = () => {
     })
     .filter((character) => {
       return status.length === 0 ? true : status.includes(character.status);
+    })
+    .filter((character) => {
+      return origin.length === 0 ? true : origin.includes(character.origin);
     });
 
   const getSpecies = () => {
@@ -92,6 +106,11 @@ const App = () => {
     return [...new Set(status)];
   };
 
+  const getOrigin = () => {
+    const origin = characters.map((character) => character.origin);
+    return [...new Set(origin)];
+  };
+
   console.log(searchResults);
   return (
     <main>
@@ -101,8 +120,9 @@ const App = () => {
           <Filters
             filterByName={filterByName}
             inputValue={name}
-            species={getSpecies()}
             status={getStatus()}
+            species={getSpecies()}
+            origin={getOrigin()}
             filterBy={filterBy}
           />
           <CharacterList searchResults={searchResults} searchValue={name} />
