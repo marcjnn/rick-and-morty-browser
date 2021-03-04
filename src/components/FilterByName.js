@@ -1,10 +1,15 @@
 const FilterByName = (props) => {
   const handleChange = (ev) => {
-    props.filterByName({
+    props.filterResults({
       key: "name",
       value: ev.target.value,
     });
+    // props.filterByName({
+    //   key: "name",
+    //   value: ev.target.value,
+    // });
   };
+  console.log(props);
   return (
     <>
       <label htmlFor="searchByName">search by name</label>

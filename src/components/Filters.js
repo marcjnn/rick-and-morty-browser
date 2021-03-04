@@ -10,23 +10,27 @@ const Filters = (props) => {
   return (
     <form onSubmit={handleSubmit} action="" methog="">
       <FilterByName
-        filterByName={props.filterByName}
+        // filterByName={props.filterByName}
         inputValue={props.inputValue}
+        filterResults={props.filterResults}
       />
       <FilterByCheckbox
         filter={"status"}
         filterby={props.status}
         filterToApply={props.filterBy}
+        filterResults={props.filterResults}
       />
       <FilterByCheckbox
         filter={"species"}
         filterby={props.species}
         filterToApply={props.filterBy}
+        filterResults={props.filterResults}
       />
       <FilterByCheckbox
         filter={"origin"}
         filterby={props.origin}
         filterToApply={props.filterBy}
+        filterResults={props.filterResults}
       />
     </form>
   );

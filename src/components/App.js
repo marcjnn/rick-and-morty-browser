@@ -22,6 +22,13 @@ const App = () => {
   const [species, setSpecies] = useState([]);
   const [origin, setOrigin] = useState([]);
 
+  const [filters, setFilters] = useState({
+    name: "",
+    status: [],
+    species: [],
+    origin: [],
+  });
+
   // fetch data; asynchronus
   // "useEffect function must return a cleanup function or nothing. Promises and useEffect(async () => ...) are not supported, but you can call an async function inside an effect... That's why using async directly in the useEffect function isn't allowed"
   useEffect(() => {
@@ -42,58 +49,93 @@ const App = () => {
     );
   };
 
-  const filterByName = (inputData) => {
-    setName(inputData.value);
+  const filterResults = (inputData) => {
+    console.log(inputData);
+    const filterByName = (inputData) => {
+      return setFilters({ ...filters, [inputData.key]: inputData.value });
+    };
+
+    const filterByCheckbox = (inputData) => {
+      const add = () => {
+        return setFilters({
+          ...filters,
+          [inputData.key]: [...filters[inputData.key], inputData.value],
+        });
+      };
+
+      const remove = () => {
+        const newArr = [...filters[inputData.key]];
+        console.log(newArr);
+        newArr.splice(indexOf, 1);
+        console.log(newArr);
+        return setFilters({ ...filters, [inputData.key]: newArr });
+      };
+
+      const indexOf = filters[inputData.key].indexOf(inputData.value);
+      return indexOf === -1 ? add() : remove();
+    };
+
+    return inputData.key === "name"
+      ? filterByName(inputData)
+      : filterByCheckbox(inputData);
   };
 
-  const filterBy = (inputData) => {
-    // console.log(inputData);
-    if (inputData.key === "species") {
-      const indexSpecie = species.indexOf(inputData.value);
-      if (indexSpecie === -1) {
-        setSpecies([...species, inputData.value]);
-      } else {
-        const newSpecies = [...species];
-        newSpecies.splice(indexSpecie, 1);
-        setSpecies(newSpecies);
-      }
-    } else if (inputData.key === "status") {
-      const indexStatus = status.indexOf(inputData.value);
-      if (indexStatus === -1) {
-        setStatus([...status, inputData.value]);
-      } else {
-        const newStatus = [...status];
-        newStatus.splice(indexStatus, 1);
-        setStatus(newStatus);
-      }
-    } else if (inputData.key === "origin") {
-      const indexOrigin = origin.indexOf(inputData.value);
-      if (indexOrigin === -1) {
-        setOrigin([...origin, inputData.value]);
-      } else {
-        const newOrigin = [...origin];
-        newOrigin.splice(indexOrigin, 1);
-        setOrigin(newOrigin);
-      }
-    }
-  };
+  // console.log(filters);
 
-  // console.log(status);
-  // console.log(species);
-  // console.log(origin);
+  // const filterByName = (inputData) => {
+  //   setName(inputData.value);
+  // };
+
+  // const filterBy = (inputData) => {
+  //   // console.log(inputData);
+  //   if (inputData.key === "species") {
+  //     const indexSpecie = species.indexOf(inputData.value);
+  //     if (indexSpecie === -1) {
+  //       setSpecies([...species, inputData.value]);
+  //     } else {
+  //       const newSpecies = [...species];
+  //       newSpecies.splice(indexSpecie, 1);
+  //       setSpecies(newSpecies);
+  //     }
+  //   } else if (inputData.key === "status") {
+  //     const indexStatus = status.indexOf(inputData.value);
+  //     if (indexStatus === -1) {
+  //       setStatus([...status, inputData.value]);
+  //     } else {
+  //       const newStatus = [...status];
+  //       newStatus.splice(indexStatus, 1);
+  //       setStatus(newStatus);
+  //     }
+  //   } else if (inputData.key === "origin") {
+  //     const indexOrigin = origin.indexOf(inputData.value);
+  //     if (indexOrigin === -1) {
+  //       setOrigin([...origin, inputData.value]);
+  //     } else {
+  //       const newOrigin = [...origin];
+  //       newOrigin.splice(indexOrigin, 1);
+  //       setOrigin(newOrigin);
+  //     }
+  //   }
+  // };
 
   const searchResults = characters
     .filter((character) =>
-      character.name.toLowerCase().includes(name.toLowerCase())
+      character.name.toLowerCase().includes(filters.name.toLowerCase())
     )
     .filter((character) => {
-      return species.length === 0 ? true : species.includes(character.species);
+      return filters.species.length === 0
+        ? true
+        : filters.species.includes(character.species);
     })
     .filter((character) => {
-      return status.length === 0 ? true : status.includes(character.status);
+      return filters.status.length === 0
+        ? true
+        : filters.status.includes(character.status);
     })
     .filter((character) => {
-      return origin.length === 0 ? true : origin.includes(character.origin);
+      return filters.origin.length === 0
+        ? true
+        : filters.origin.includes(character.origin);
     });
 
   const getSpecies = () => {
@@ -118,12 +160,13 @@ const App = () => {
       <Switch>
         <Route exact path="/">
           <Filters
-            filterByName={filterByName}
-            inputValue={name}
+            // filterByName={filterByName}
+            inputValue={filters.name}
             status={getStatus()}
             species={getSpecies()}
             origin={getOrigin()}
-            filterBy={filterBy}
+            // filterBy={filterBy}
+            filterResults={filterResults}
           />
           <CharacterList searchResults={searchResults} />
         </Route>

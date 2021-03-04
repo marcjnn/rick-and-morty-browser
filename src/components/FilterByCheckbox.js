@@ -6,7 +6,9 @@ const FilterByCheckbox = (props) => {
     //   value: ev.target.value,
     // });
     // console.log(ev.target.value);
-    props.filterToApply({ key: props.filter, value: ev.target.value });
+    // props.filterToApply({ key: props.filter, value: ev.target.value });
+    console.log("im here...");
+    props.filterResults({ key: props.filter, value: ev.target.value });
   };
   const items = props.filterby.map((item, index) => {
     return (

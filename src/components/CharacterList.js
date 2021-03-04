@@ -17,8 +17,7 @@ const CharacterList = (props) => {
 
   return props.searchResults.length === 0 ? (
     <p>
-      The horror!!! There is no character matching your criteria"
-      ¯\_(ツ)_/¯
+      The horror!!! There is no characters matching your criteria" ¯\_(ツ)_/¯
     </p>
   ) : (
     <ul>{characterList}</ul>
