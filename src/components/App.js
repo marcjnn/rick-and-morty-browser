@@ -17,10 +17,6 @@ import CharacterNotFound from "./CharacterNotFound";
 
 const App = () => {
   const [characters, setCharacters] = useState([]);
-  // const [name, setName] = useState("");
-  // const [status, setStatus] = useState([]);
-  // const [species, setSpecies] = useState([]);
-  // const [origin, setOrigin] = useState([]);
 
   const [filters, setFilters] = useState({
     name: "",
@@ -166,8 +162,8 @@ const App = () => {
 
   // console.log(searchResults);
   return (
-    <main>
-      <img src={logo} alt="Rick and Morty logo" />
+    <main className="main">
+      <img className="logo" src={logo} alt="Rick and Morty logo" />
       <Switch>
         <Route exact path="/">
           <Filters

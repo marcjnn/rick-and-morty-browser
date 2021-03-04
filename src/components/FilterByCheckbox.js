@@ -7,7 +7,6 @@ const FilterByCheckbox = (props) => {
     return (
       <li key={index}>
         <label htmlFor={item}>
-          {item}
           <input
             type="checkbox"
             name={props.filter}
@@ -15,7 +14,8 @@ const FilterByCheckbox = (props) => {
             value={item}
             onChange={handleChange}
             checked={props.filters[props.filter].includes(item)}
-          />
+          />{" "}
+          {item}
         </label>
       </li>
     );

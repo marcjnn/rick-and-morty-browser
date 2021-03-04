@@ -1,0 +1,16 @@
+@import "../core/_variables";
+@import "../core/_mixins";
+@import "../core/_reset";
+
+.main {
+  min-width: 320px;
+  padding: 2vw;
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .logo {
+    width: 90vw;
+  }
+}
