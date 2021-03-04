@@ -3,6 +3,7 @@
 @import "../core/_reset";
 
 .main {
+  min-height: 100vh;
   min-width: 320px;
   padding: 2vw;
   background-color: black;
@@ -22,5 +23,8 @@
       width: 30vw;
       max-width: 420px;
     }
+  }
+  .try {
+    display: flex;
   }
 }

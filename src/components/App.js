@@ -177,7 +177,10 @@ const App = () => {
             // filterBy={filterBy}
             filterResults={filterResults}
           />
-          <CharacterList searchResults={searchResults} icons={icons} />
+          <CharacterList
+            searchResults={searchResults}
+            icons={icons}
+          />
         </Route>
         <Route path="/characters/:route" render={renderCharacterDetails} />
       </Switch>

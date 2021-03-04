@@ -1,0 +1,36 @@
+@import "../core/_variables";
+@import "../core/_mixins";
+@import "../core/_reset";
+
+.card {
+  &__detail {
+    width: 80vw;
+    padding: 5vw;
+    background-color: $colorMain;
+    border: 3px solid $colorBgrWarm;
+  }
+}
+
+.detail {
+  &__image {
+    width: 100%;
+  }
+  &__name {
+    text-transform: capitalize;
+    font-family: $fontTitle;
+    font-weight: 300;
+    font-size: 16px;
+    @include media-s-breakpoint {
+      font-size: 16px;
+      padding: 1vw 1vw 0;
+    }
+    @include media-m-breakpoint {
+      font-size: 14px;
+      padding-bottom: 0;
+    }
+    @include media-xl-breakpoint {
+      padding: 0.5vw 0.5vw 0;
+      font-size: 20px;
+    }
+  }
+}
