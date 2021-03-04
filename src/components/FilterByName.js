@@ -5,7 +5,17 @@ const FilterByName = (props) => {
       value: ev.target.value,
     });
   };
-  return <input type="text" value={props.inputValue} onChange={handleChange} />;
+  return (
+    <>
+      <label htmlFor="searchByName">search by name</label>
+      <input
+        id="searchByName"
+        type="text"
+        value={props.inputValue}
+        onChange={handleChange}
+      />
+    </>
+  );
 };
 
 export default FilterByName;
