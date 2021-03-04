@@ -1,21 +1,23 @@
-// styles
+// styles & resources
 import "../style/components/App.scss";
-
-// services
-import api from "../services/api";
+import logo from "../images/logo.png";
 
 // React
 import React, { useEffect, useState } from "react";
 import { Route, Switch } from "react-router-dom";
 
+// services
+import api from "../services/api";
+
 // components
+import Filters from "./Filters";
 import CharacterList from "./CharacterList";
-// import Filters from "./Filters";
 import CharacterDetails from "./CharacterDetails";
 import CharacterNotFound from "./CharacterNotFound";
 
 const App = () => {
   const [characters, setCharacters] = useState([]);
+  const [name, setName] = useState("");
   // fetch data; asynchronus
   // "useEffect function must return a cleanup function or nothing. Promises and useEffect(async () => ...) are not supported, but you can call an async function inside an effect... That's why using async directly in the useEffect function isn't allowed"
   useEffect(() => {
@@ -36,11 +38,16 @@ const App = () => {
     );
   };
 
+  const filterByName = (inputData) => {
+    setName(inputData.value);
+  };
+
   return (
     <main>
+      <img src={logo} alt="Rick and Morty logo" />
       <Switch>
         <Route exact path="/">
-          {/* <Filters /> */}
+          <Filters filterByName={filterByName} />
           <CharacterList characters={characters} />
         </Route>
         <Route path="/:route" render={renderCharacterDetails} />
