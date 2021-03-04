@@ -52,9 +52,9 @@ const App = () => {
       <Switch>
         <Route exact path="/">
           <Filters filterByName={filterByName} inputValue={name} />
-          <CharacterList characters={searchResults} />
+          <CharacterList searchResults={searchResults} searchValue={name} />
         </Route>
-        <Route path="/:route" render={renderCharacterDetails} />
+        <Route path="/characters/:route" render={renderCharacterDetails} />
       </Switch>
     </main>
   );

@@ -5,17 +5,24 @@ import { Link } from "react-router-dom";
 import CharacterCard from "./CharacterCard";
 
 const CharacterList = (props) => {
-  // console.log(props);
-  const characterList = props.characters.map((character) => {
+  const characterList = props.searchResults.map((character) => {
     return (
       <li key={character.id}>
-        <Link to={`/${character.route}`}>
+        <Link to={`/characters/${character.route}`}>
           <CharacterCard character={character} />
         </Link>
       </li>
     );
   });
-  return <ul>{characterList}</ul>;
+
+  return props.searchResults.length === 0 ? (
+    <p>
+      The horror!!! There is no character called "{props.searchValue}""
+      ¯\_(ツ)_/¯
+    </p>
+  ) : (
+    <ul>{characterList}</ul>
+  );
 };
 
 export default CharacterList;
