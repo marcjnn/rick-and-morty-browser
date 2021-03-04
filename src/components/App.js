@@ -17,12 +17,14 @@ import CharacterNotFound from "./CharacterNotFound";
 const App = () => {
   const [characters, setCharacters] = useState([]);
   // fetch data; asynchronus
-  useEffect(async () => {
-    const data = await api.fetchCharacters();
-    setCharacters(data);
+  // "useEffect function must return a cleanup function or nothing. Promises and useEffect(async () => ...) are not supported, but you can call an async function inside an effect... That's why using async directly in the useEffect function isn't allowed"
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await api.fetchCharacters();
+      setCharacters(data);
+    };
+    fetchData();
   }, []);
-
-  console.log(characters);
 
   const renderCharacterDetails = (props) => {
     const route = props.match.params.route;
