@@ -6,7 +6,10 @@ const Filters = (props) => {
   };
   return (
     <form onSubmit={handleSubmit} action="" methog="">
-      <FilterByName filterByName={props.filterByName} />
+      <FilterByName
+        filterByName={props.filterByName}
+        inputValue={props.inputValue}
+      />
     </form>
   );
 };

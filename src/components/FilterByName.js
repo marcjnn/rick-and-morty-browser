@@ -5,7 +5,7 @@ const FilterByName = (props) => {
       value: ev.target.value,
     });
   };
-  return <input type="text" onChange={handleChange} />;
+  return <input type="text" value={props.inputValue} onChange={handleChange} />;
 };
 
 export default FilterByName;

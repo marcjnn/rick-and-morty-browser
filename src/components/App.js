@@ -42,13 +42,17 @@ const App = () => {
     setName(inputData.value);
   };
 
+  const searchResults = characters.filter((character) =>
+    character.name.toLowerCase().includes(name.toLowerCase())
+  );
+
   return (
     <main>
       <img src={logo} alt="Rick and Morty logo" />
       <Switch>
         <Route exact path="/">
-          <Filters filterByName={filterByName} />
-          <CharacterList characters={characters} />
+          <Filters filterByName={filterByName} inputValue={name} />
+          <CharacterList characters={searchResults} />
         </Route>
         <Route path="/:route" render={renderCharacterDetails} />
       </Switch>
