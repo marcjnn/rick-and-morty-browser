@@ -1,0 +1,88 @@
+@import "../core/_variables";
+@import "../core/_mixins";
+@import "../core/_reset";
+
+.results {
+  // results only fo ranidation purposes, no adding styles here
+  &__card {
+    width: 80vw;
+    height: 100%;
+    margin: 2vh 0;
+    background-color: $colorMain;
+    border: 3px solid $colorBgrWarm;
+    position: relative;
+    @include media-s-breakpoint {
+      width: 28vw;
+      margin: 0;
+    }
+    @include media-m-breakpoint {
+      width: 25vw;
+    }
+    @include media-l-breakpoint {
+      width: 18vw;
+    }
+  }
+  .card {
+    &__image {
+      width: 100%;
+    }
+    &__name {
+      padding: 1vw 2vw;
+      text-transform: capitalize;
+      font-family: $fontTitle;
+      font-weight: 300;
+      font-size: 18px;
+      @include media-s-breakpoint {
+        font-size: 16px;
+        padding: 1vw 1vw 0;
+      }
+      @include media-m-breakpoint {
+        font-size: 14px;
+        padding-bottom: 0;
+      }
+      @include media-xl-breakpoint {
+        padding: 0.5vw 0.5vw 0;
+        font-size: 20px;
+      }
+    }
+    &__spieces {
+      text-transform: uppercase;
+      font-family: $fontSubTitle;
+      padding: 1vw 2vw;
+      @include media-s-breakpoint {
+        padding: 0 1vw 1vw;
+        font-size: 14px;
+      }
+      @include media-s-breakpoint {
+        padding: 1vw;
+      }
+      @include media-xl-breakpoint {
+        padding: 0 0.5vw 0.5vw;
+        font-size: 18px;
+      }
+    }
+    &__status {
+      font-size: 32px;
+      color: $colorBgrWarm;
+      position: absolute;
+      right: 3vw;
+      top: 3vw;
+      @include media-s-breakpoint {
+        font-size: 26px;
+        right: 2vw;
+        top: 2vw;
+      }
+      @include media-m-breakpoint {
+        font-size: 22px;
+        right: 1vw;
+        top: 0.8vw;
+      }
+      @include media-xl-breakpoint {
+        font-size: 28px;
+      }
+      .reactIcon {
+        filter: drop-shadow(0px 0px 2px $colorBorder);
+      }
+    }
+  }
+}

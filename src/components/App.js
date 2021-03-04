@@ -1,6 +1,7 @@
 // styles & resources
 import "../style/components/App.scss";
 import logo from "../images/logo.png";
+import icons from "../services/icons";
 
 // React
 import React, { useEffect, useState } from "react";
@@ -176,7 +177,7 @@ const App = () => {
             // filterBy={filterBy}
             filterResults={filterResults}
           />
-          <CharacterList searchResults={searchResults} />
+          <CharacterList searchResults={searchResults} icons={icons} />
         </Route>
         <Route path="/characters/:route" render={renderCharacterDetails} />
       </Switch>

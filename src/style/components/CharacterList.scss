@@ -1,0 +1,22 @@
+@import "../core/_variables";
+@import "../core/_mixins";
+@import "../core/_reset";
+
+.results {
+  display: grid;
+  @include media-s-breakpoint {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2vw;
+  }
+  @include media-m-breakpoint {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5vw;
+  }
+  @include media-l-breakpoint {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  &__link {
+    color: white;
+    text-decoration: none;
+  }
+}

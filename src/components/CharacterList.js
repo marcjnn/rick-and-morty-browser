@@ -1,3 +1,6 @@
+// styles & resources
+import "../style/components/CharacterList.scss";
+
 // React
 import { Link } from "react-router-dom";
 
@@ -8,8 +11,8 @@ const CharacterList = (props) => {
   const characterList = props.searchResults.map((character) => {
     return (
       <li key={character.id}>
-        <Link to={`/characters/${character.route}`}>
-          <CharacterCard character={character} />
+        <Link className="results__link" to={`/characters/${character.route}`}>
+          <CharacterCard character={character} icons={props.icons} />
         </Link>
       </li>
     );
@@ -20,7 +23,7 @@ const CharacterList = (props) => {
       The horror!!! There is no characters matching your criteria" ¯\_(ツ)_/¯
     </p>
   ) : (
-    <ul>{characterList}</ul>
+    <ul className="results">{characterList}</ul>
   );
 };
 
