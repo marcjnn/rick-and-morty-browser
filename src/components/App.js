@@ -17,10 +17,10 @@ import CharacterNotFound from "./CharacterNotFound";
 
 const App = () => {
   const [characters, setCharacters] = useState([]);
-  const [name, setName] = useState("");
-  const [status, setStatus] = useState([]);
-  const [species, setSpecies] = useState([]);
-  const [origin, setOrigin] = useState([]);
+  // const [name, setName] = useState("");
+  // const [status, setStatus] = useState([]);
+  // const [species, setSpecies] = useState([]);
+  // const [origin, setOrigin] = useState([]);
 
   const [filters, setFilters] = useState({
     name: "",
@@ -50,7 +50,7 @@ const App = () => {
   };
 
   const filterResults = (inputData) => {
-    console.log(inputData);
+    // console.log(inputData);
     const filterByName = (inputData) => {
       return setFilters({ ...filters, [inputData.key]: inputData.value });
     };
@@ -160,6 +160,7 @@ const App = () => {
       <Switch>
         <Route exact path="/">
           <Filters
+          filters={filters}
             // filterByName={filterByName}
             inputValue={filters.name}
             status={getStatus()}

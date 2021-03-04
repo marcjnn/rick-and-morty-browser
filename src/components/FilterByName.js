@@ -9,7 +9,7 @@ const FilterByName = (props) => {
     //   value: ev.target.value,
     // });
   };
-  console.log(props);
+  // console.log(props);
   return (
     <>
       <label htmlFor="searchByName">search by name</label>

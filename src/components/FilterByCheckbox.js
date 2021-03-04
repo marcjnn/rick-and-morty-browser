@@ -1,16 +1,10 @@
 const FilterByCheckbox = (props) => {
-  // console.log(props);
+  console.log(props);
   const handleChange = (ev) => {
-    // props.filterByName({
-    //   key: "name",
-    //   value: ev.target.value,
-    // });
-    // console.log(ev.target.value);
-    // props.filterToApply({ key: props.filter, value: ev.target.value });
-    console.log("im here...");
     props.filterResults({ key: props.filter, value: ev.target.value });
   };
   const items = props.filterby.map((item, index) => {
+    console.log(item);
     return (
       <li key={index}>
         <label htmlFor={item}>
@@ -21,6 +15,7 @@ const FilterByCheckbox = (props) => {
             id={item}
             value={item}
             onChange={handleChange}
+            checked={props.filters[props.filter].includes(item)}
           />
         </label>
       </li>

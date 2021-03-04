@@ -3,33 +3,34 @@ import FilterByName from "./FilterByName";
 import FilterByCheckbox from "./FilterByCheckbox";
 
 const Filters = (props) => {
-  // console.log(props);
   const handleSubmit = (ev) => {
     ev.preventDefault();
   };
+  console.log(props);
+  console.log(props.filters);
+
   return (
     <form onSubmit={handleSubmit} action="" methog="">
       <FilterByName
-        // filterByName={props.filterByName}
         inputValue={props.inputValue}
         filterResults={props.filterResults}
       />
       <FilterByCheckbox
+        filters={props.filters}
         filter={"status"}
         filterby={props.status}
-        filterToApply={props.filterBy}
         filterResults={props.filterResults}
       />
       <FilterByCheckbox
+        filters={props.filters}
         filter={"species"}
         filterby={props.species}
-        filterToApply={props.filterBy}
         filterResults={props.filterResults}
       />
       <FilterByCheckbox
+        filters={props.filters}
         filter={"origin"}
         filterby={props.origin}
-        filterToApply={props.filterBy}
         filterResults={props.filterResults}
       />
     </form>
