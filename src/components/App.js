@@ -18,6 +18,7 @@ import CharacterNotFound from "./CharacterNotFound";
 const App = () => {
   const [characters, setCharacters] = useState([]);
   const [name, setName] = useState("");
+  const [status, setStatus] = useState([]);
   const [species, setSpecies] = useState([]);
 
   // fetch data; asynchronus
@@ -45,20 +46,35 @@ const App = () => {
   };
 
   const filterBy = (inputData) => {
+    console.log(inputData);
     // console.log(inputData);
-    if (inputData.key === "species") {
-      const indexSpecie = species.indexOf(inputData.value);
-      console.log(indexSpecie);
-      if (indexSpecie === -1) {
-        setSpecies([...species, inputData.value]);
+    // if (inputData.key === "species") {
+    //   const indexSpecie = species.indexOf(inputData.value);
+    //   console.log(indexSpecie);
+    //   if (indexSpecie === -1) {
+    //     setSpecies([...species, inputData.value]);
+    //   } else {
+    //     const newSpecies = [...species];
+    //     newSpecies.splice(indexSpecie, 1);
+    //     setSpecies(newSpecies);
+    //   }
+    if (inputData.key === "status") {
+      const indexStatus = status.indexOf(inputData.value);
+      console.log(indexStatus);
+      if (indexStatus === -1) {
+        setStatus([...status, inputData.value]);
       } else {
-        const newSpecies = [...species];
-        newSpecies.splice(indexSpecie, 1);
-        setSpecies(newSpecies);
+        // debugger;
+        const newStatus = [...status];
+        newStatus.splice(indexStatus, 1);
+        setStatus(newStatus);
       }
     }
   };
+
   console.log(species);
+  console.log(status);
+
   // start dayani
 
   // const indexCity = cities.indexOf(inputChange.value);
@@ -80,16 +96,19 @@ const App = () => {
     .filter((character) =>
       character.name.toLowerCase().includes(name.toLowerCase())
     )
+    // .filter((character) => {
+    //   if (species.length === 0) {
+    //     return true;
+    //   } else {
+    //     return species.includes(character.species);
+    //   }
+    // });
     .filter((character) => {
-      if (species.length === 0) {
-        return true;
-      } else {
-        return species.includes(character.species);
-      }
+      return species.length === 0 ? true : species.includes(character.species);
+    })
+    .filter((character) => {
+      return status.length === 0 ? true : species.includes(character.species);
     });
-  // .filter((character) => {
-  //   return species.length === 0 ? true : species.includes(character.species);
-  // });
 
   //   .filter(user=>{
   //     if(cities.length === 0){
@@ -101,12 +120,16 @@ const App = () => {
   // })
 
   const getSpecies = () => {
-    const species = characters.map((character) =>
-      character.species.toLowerCase()
-    );
+    const species = characters.map((character) => character.species);
     return [...new Set(species)];
   };
-  console.log(searchResults);
+
+  const getStatus = () => {
+    const status = characters.map((character) => character.status);
+    return [...new Set(status)];
+  };
+
+  // console.log(searchResults);
   return (
     <main>
       <img src={logo} alt="Rick and Morty logo" />
@@ -116,6 +139,7 @@ const App = () => {
             filterByName={filterByName}
             inputValue={name}
             species={getSpecies()}
+            status={getStatus()}
             filterBy={filterBy}
           />
           <CharacterList searchResults={searchResults} searchValue={name} />

@@ -13,7 +13,11 @@ const Filters = (props) => {
         filterByName={props.filterByName}
         inputValue={props.inputValue}
       />
-      {/* <FilterByCheckbox filter={"status"} /> */}
+      <FilterByCheckbox
+        filter={"status"}
+        filterby={props.status}
+        filterToApply={props.filterBy}
+      />
       <FilterByCheckbox
         filter={"species"}
         filterby={props.species}

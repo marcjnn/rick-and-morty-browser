@@ -8,8 +8,8 @@ let fetchCharacters = async () => {
     return {
       id: character.id.toString(),
       name: character.name,
-      status: character.status,
-      species: character.species,
+      status: character.status.toLowerCase(),
+      species: character.species.toLowerCase(),
       origin: character.origin.name,
       image: character.image,
       episodes: character.episode.length,
