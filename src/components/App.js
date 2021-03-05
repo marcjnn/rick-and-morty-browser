@@ -10,6 +10,7 @@ import { Route, Switch } from "react-router-dom";
 import api from "../services/api";
 
 // components
+import Loader from "./Loader";
 import Filters from "./Filters";
 import CharacterList from "./CharacterList";
 import CharacterDetails from "./CharacterDetails";
@@ -24,6 +25,7 @@ const App = () => {
     species: [],
     origin: [],
   });
+  const [isLoading, setIsLoading] = useState(true);
 
   // fetch data; asynchronus
 
@@ -34,6 +36,7 @@ const App = () => {
       setCharacters(data);
     };
     fetchData();
+    setIsLoading(false);
   }, []);
 
   // additional data to pass through props
@@ -133,20 +136,26 @@ const App = () => {
   return (
     <main className="main">
       <img className="logo" src={logo} alt="Rick and Morty logo" />
-      <Switch>
-        <Route exact path="/">
-          <Filters
-            filters={filters}
-            inputValue={filters.name}
-            status={getStatus()}
-            species={getSpecies()}
-            origin={getOrigin()}
-            filterResults={filterResults}
-          />
-          <CharacterList searchResults={searchResults} />
-        </Route>
-        <Route path="/characters/:route" render={renderCharacterDetails} />
-      </Switch>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <>
+          <Switch>
+            <Route exact path="/">
+              <Filters
+                filters={filters}
+                inputValue={filters.name}
+                status={getStatus()}
+                species={getSpecies()}
+                origin={getOrigin()}
+                filterResults={filterResults}
+              />
+              <CharacterList searchResults={searchResults} />
+            </Route>
+            <Route path="/characters/:route" render={renderCharacterDetails} />
+          </Switch>
+        </>
+      )}
     </main>
   );
 };

@@ -1,0 +1,12 @@
+@import "../core/_variables";
+@import "../core/_mixins";
+@import "../core/_reset";
+
+.loading {
+  margin-top: 25px;
+  color: $colorBgrWarm;
+  font-family: $fontSubTitle;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 18px;
+}
