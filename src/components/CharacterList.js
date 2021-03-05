@@ -3,6 +3,7 @@ import "../style/components/CharacterList.scss";
 
 // React
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 // components
 import CharacterCard from "./CharacterCard";
@@ -25,6 +26,10 @@ const CharacterList = (props) => {
   ) : (
     <ul className="results">{characterList}</ul>
   );
+};
+
+CharacterList.propTypes = {
+  searchResults: PropTypes.array,
 };
 
 export default CharacterList;

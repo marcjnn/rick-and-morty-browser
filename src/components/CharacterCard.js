@@ -2,9 +2,11 @@
 import icons from "../assets/icons";
 import "../style/components/CharacterCard.scss";
 
+// React
+import PropTypes from "prop-types";
+
 const CharacterCard = (props) => {
   const character = props.character;
-  console.log(props);
   const icon = () => {
     if (character.status === "alive") {
       return icons.heartbeat;
@@ -22,6 +24,10 @@ const CharacterCard = (props) => {
       <div className="card__status">{icon()}</div>
     </article>
   );
+};
+
+CharacterCard.propTypes = {
+  character: PropTypes.object,
 };
 
 export default CharacterCard;

@@ -1,15 +1,13 @@
+// React
+import PropTypes from "prop-types";
+
 const FilterByName = (props) => {
   const handleChange = (ev) => {
     props.filterResults({
       key: "name",
       value: ev.target.value,
     });
-    // props.filterByName({
-    //   key: "name",
-    //   value: ev.target.value,
-    // });
   };
-  // console.log(props);
   return (
     <>
       <label htmlFor="searchByName">search by name</label>
@@ -21,6 +19,11 @@ const FilterByName = (props) => {
       />
     </>
   );
+};
+
+FilterByName.propTypes = {
+  resultsResults: PropTypes.func,
+  inputValue: PropTypes.string,
 };
 
 export default FilterByName;

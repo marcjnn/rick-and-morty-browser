@@ -1,3 +1,6 @@
+// React
+import PropTypes from "prop-types";
+
 // components
 import FilterByName from "./FilterByName";
 import FilterByCheckbox from "./FilterByCheckbox";
@@ -35,6 +38,16 @@ const Filters = (props) => {
       />
     </form>
   );
+};
+
+Filters.propTypes = {
+  resultsResults: PropTypes.func,
+  inputValue: PropTypes.string,
+  filterby: PropTypes.array,
+  filters: PropTypes.object,
+  status: PropTypes.array,
+  species: PropTypes.array,
+  origin: PropTypes.array,
 };
 
 export default Filters;

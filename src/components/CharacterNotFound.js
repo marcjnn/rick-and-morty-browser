@@ -11,7 +11,7 @@ const CharacterNotFound = () => {
     <>
       <article className="error">
         <h2>404... Whoops...</h2>
-        <img className="error__image" src={errorIMG} alt="404 error image" />
+        <img className="error__image" src={errorIMG} alt="404 error" />
         <p
           className="error__description
       "
@@ -19,7 +19,7 @@ const CharacterNotFound = () => {
           Sorry, the character you're looking for is nowhere to be found
         </p>
       </article>
-      <ReturnLink text="go to homepage" icon={icons.homepage} route="/" />
+      <ReturnLink text="go to homepage" icon={icons.homepage} />
     </>
   );
 };

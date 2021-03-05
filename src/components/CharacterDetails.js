@@ -3,7 +3,7 @@ import "../style/components/CharacterDetails.scss";
 import icons from "../assets/icons";
 
 // React
-import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 // components
 import ReturnLink from "./ReturnLink";
@@ -12,13 +12,7 @@ const CharacterDetails = (props) => {
   const character = props.character;
   return (
     <div>
-      <ReturnLink text="return" icon={icons.doublearrow} route="/" />
-      {/* <Link className="return__link" to="/">
-        <p className="return__button">
-          {icons.doublearrow}
-          <span className="return__button--btn">return</span>
-        </p>
-      </Link> */}
+      <ReturnLink icon={icons.doublearrow} />
       <article className="card__detail">
         <img
           className="detail__image"
@@ -47,6 +41,10 @@ const CharacterDetails = (props) => {
       </article>
     </div>
   );
+};
+
+CharacterDetails.propTypes = {
+  character: PropTypes.object,
 };
 
 export default CharacterDetails;

@@ -1,3 +1,6 @@
+// React
+import PropTypes from "prop-types";
+
 const FilterByCheckbox = (props) => {
   // console.log(props);
   const handleChange = (ev) => {
@@ -26,6 +29,13 @@ const FilterByCheckbox = (props) => {
       <ul>{items}</ul>
     </fieldset>
   );
+};
+
+FilterByCheckbox.propTypes = {
+  resultsResults: PropTypes.func,
+  filterby: PropTypes.array,
+  filter: PropTypes.string,
+  filters: PropTypes.object,
 };
 
 export default FilterByCheckbox;

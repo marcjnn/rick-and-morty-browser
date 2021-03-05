@@ -1,9 +1,9 @@
 // styles & resources
 import "../style/components/ReturnLink.scss";
-import icons from "../assets/icons";
 
 // React
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const ReturnLink = (props) => {
   return (
@@ -14,6 +14,17 @@ const ReturnLink = (props) => {
       </p>
     </Link>
   );
+};
+
+ReturnLink.defaultProps = {
+  route: "/",
+  text: "return",
+};
+
+ReturnLink.propTypes = {
+  route: PropTypes.string,
+  text: PropTypes.string,
+  icon: PropTypes.object,
 };
 
 export default ReturnLink;
