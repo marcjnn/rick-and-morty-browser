@@ -37,7 +37,7 @@ const FilterByCheckbox = (props) => {
   return (
     <fieldset className="filter__section">
       <legend className="filter__title" onClick={handleClick}>
-        {props.icon} filter by {props.filter}
+        {props.icon} {props.filter}
       </legend>
       <ul className={hidden}>{items}</ul>
     </fieldset>

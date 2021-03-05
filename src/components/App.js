@@ -41,19 +41,12 @@ const App = () => {
 
   // additional data to pass through props
 
-  const getSpecies = () => {
-    const species = characters.map((character) => character.species);
-    return [...new Set(species)];
-  };
+  // rewriting previous functions: const species = characters.map((character) => character.species); return [...new Set(species)];
 
-  const getStatus = () => {
-    const status = characters.map((character) => character.status);
-    return [...new Set(status)];
-  };
+  // getItems - to get species, status, origin - one function to rule them all
 
-  const getOrigin = () => {
-    const origin = characters.map((character) => character.origin);
-    return [...new Set(origin)];
+  const getItems = (key) => {
+    return [...new Set(characters.map((character) => character[key]))];
   };
 
   // filter results' list
@@ -145,9 +138,9 @@ const App = () => {
               <Filters
                 filters={filters}
                 inputValue={filters.name}
-                status={getStatus()}
-                species={getSpecies()}
-                origin={getOrigin()}
+                status={getItems("status")}
+                species={getItems("species")}
+                origin={getItems("origin")}
                 filterResults={filterResults}
               />
               <CharacterList searchResults={searchResults} />
