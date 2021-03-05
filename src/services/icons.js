@@ -3,6 +3,7 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faHeartbeat } from "@fortawesome/free-solid-svg-icons";
 import { faSkullCrossbones } from "@fortawesome/free-solid-svg-icons";
 import { faQuestionCircle } from "@fortawesome/free-solid-svg-icons";
+import { faAngleDoubleLeft } from "@fortawesome/free-solid-svg-icons";
 
 const icons = {
   heartbeat: <FontAwesomeIcon icon={faHeartbeat} className="reactIcon" />,
@@ -10,6 +11,9 @@ const icons = {
   user: <FontAwesomeIcon icon={faUser} className="reactIcon" />,
   questionmark: (
     <FontAwesomeIcon icon={faQuestionCircle} className="reactIcon" />
+  ),
+  doublearrow: (
+    <FontAwesomeIcon icon={faAngleDoubleLeft} className="reactIcon" />
   ),
 };
 
