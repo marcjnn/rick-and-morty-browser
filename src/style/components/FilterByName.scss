@@ -1,3 +1,32 @@
 @import "../core/_variables";
 @import "../core/_mixins";
 @import "../core/_reset";
+
+.search {
+  &__label {
+    display: inline-block;
+    margin: 16px 10px 0 0;
+    font-size: 18px;
+    @include media-m-breakpoint {
+      margin: 0 0 10px 0;
+    }
+  }
+  &__input {
+    display: inline-block;
+    padding: 4px;
+    &::placeholder {
+      color: $colorMain;
+      font-family: $fontMain;
+      font-weight: 300;
+    }
+  }
+  .iconReact {
+    font-size: 16px;
+  }
+}
+.nameFilter {
+  @include media-m-breakpoint {
+    display: flex;
+    flex-direction: column;
+  }
+}

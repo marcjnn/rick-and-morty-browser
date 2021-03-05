@@ -1,5 +1,6 @@
 // styles & resources
-import "../style/components/FilterByName.scss";
+import "../style/components/Filters.scss";
+import icons from "../assets/icons";
 
 // React
 import PropTypes from "prop-types";
@@ -16,7 +17,8 @@ const Filters = (props) => {
   // console.log(props.filters);
 
   return (
-    <form onSubmit={handleSubmit} action="" methog="">
+    <form className="filters" onSubmit={handleSubmit} action="" methog="">
+      <h2 className="filters__title">Filter by</h2>
       <FilterByName
         inputValue={props.inputValue}
         filterResults={props.filterResults}
@@ -26,18 +28,21 @@ const Filters = (props) => {
         filter={"status"}
         filterby={props.status}
         filterResults={props.filterResults}
+        icon={icons.medical}
       />
       <FilterByCheckbox
         filters={props.filters}
         filter={"species"}
         filterby={props.species}
         filterResults={props.filterResults}
+        icon={icons.ghost}
       />
       <FilterByCheckbox
         filters={props.filters}
         filter={"origin"}
         filterby={props.origin}
         filterResults={props.filterResults}
+        icon={icons.globe}
       />
     </form>
   );

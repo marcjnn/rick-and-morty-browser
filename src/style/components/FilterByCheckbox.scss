@@ -1,3 +1,38 @@
 @import "../core/_variables";
 @import "../core/_mixins";
 @import "../core/_reset";
+
+.filter {
+  &__section {
+    border: none;
+    margin-top: 16px;
+    @include media-m-breakpoint {
+      margin: 0;
+    }
+  }
+  &__title {
+    margin-bottom: 3px;
+    font-size: 18px;
+  }
+  &__label {
+    font-size: 14px;
+    vertical-align: middle;
+  }
+}
+
+// .search {
+//   &__label {
+//     display: inline-block;
+//     margin: 16px 10px 0 0;
+//     font-size: 16px;
+//   }
+//   &__input {
+//     display: inline-block;
+//     padding: 4px;
+//     &::placeholder {
+//       color: $colorMain;
+//       font-family: $fontMain;
+//       font-weight: 300;
+//     }
+//   }
+// }

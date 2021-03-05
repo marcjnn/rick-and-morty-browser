@@ -5,7 +5,7 @@
 .main {
   min-height: 100vh;
   min-width: 320px;
-  padding: 2vw;
+  padding: 7vw 0;
   background-color: black;
   color: white;
   display: flex;
@@ -13,7 +13,10 @@
   align-items: center;
   justify-content: center;
   @include media-s-breakpoint {
-    padding: 5vw 2vw;
+    padding: 5vw 0;
+  }
+  @include media-l-breakpoint {
+    padding: 3vw 0;
   }
   .logo {
     width: 70vw;

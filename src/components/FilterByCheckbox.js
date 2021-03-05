@@ -1,3 +1,6 @@
+// styles & resources
+import "../style/components/FilterByCheckbox.scss";
+
 // React
 import PropTypes from "prop-types";
 
@@ -9,7 +12,7 @@ const FilterByCheckbox = (props) => {
   const items = props.filterby.map((item, index) => {
     return (
       <li key={index}>
-        <label htmlFor={item}>
+        <label className="filter__label" htmlFor={item}>
           <input
             type="checkbox"
             name={props.filter}
@@ -24,8 +27,10 @@ const FilterByCheckbox = (props) => {
     );
   });
   return (
-    <fieldset>
-      <legend>filter by {props.filter}</legend>
+    <fieldset className="filter__section">
+      <legend className="filter__title">
+        {props.icon} filter by {props.filter}
+      </legend>
       <ul>{items}</ul>
     </fieldset>
   );
