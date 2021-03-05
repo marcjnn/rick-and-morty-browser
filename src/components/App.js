@@ -15,6 +15,7 @@ import Filters from "./Filters";
 import CharacterList from "./CharacterList";
 import CharacterDetails from "./CharacterDetails";
 import CharacterNotFound from "./CharacterNotFound";
+import ScrollToTop from "./ScrollToTop";
 
 const App = () => {
   // state
@@ -127,23 +128,26 @@ const App = () => {
 
   const renderHomePage = () => {
     return (
-      <Switch>
-        <Route exact path="/">
-          <Filters
-            filters={filters}
-            inputValue={filters.name}
-            status={getItems("status")}
-            species={getItems("species")}
-            origin={getItems("origin")}
-            filterResults={filterResults}
-          />
-          <CharacterList searchResults={searchResults} />
-        </Route>
-        <Route path="/characters/:route" render={renderCharacterDetails} />
-        <Route path="/">
-          <CharacterNotFound />
-        </Route>
-      </Switch>
+      <>
+        <ScrollToTop />
+        <Switch>
+          <Route exact path="/">
+            <Filters
+              filters={filters}
+              inputValue={filters.name}
+              status={getItems("status")}
+              species={getItems("species")}
+              origin={getItems("origin")}
+              filterResults={filterResults}
+            />
+            <CharacterList searchResults={searchResults} />
+          </Route>
+          <Route path="/characters/:route" render={renderCharacterDetails} />
+          <Route path="/">
+            <CharacterNotFound />
+          </Route>
+        </Switch>
+      </>
     );
   };
 
