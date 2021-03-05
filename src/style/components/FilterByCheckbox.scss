@@ -13,9 +13,18 @@
   &__title {
     margin-bottom: 3px;
     font-size: 18px;
+    @media all and (max-width: 767px) {
+      cursor: pointer;
+    }
   }
   &__label {
     font-size: 14px;
     vertical-align: middle;
+  }
+}
+
+@media all and (max-width: 767px) {
+  .hidden {
+    display: none;
   }
 }
