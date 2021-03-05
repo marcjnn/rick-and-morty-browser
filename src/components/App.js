@@ -16,8 +16,8 @@ import CharacterDetails from "./CharacterDetails";
 import CharacterNotFound from "./CharacterNotFound";
 
 const App = () => {
+  // state
   const [characters, setCharacters] = useState([]);
-
   const [filters, setFilters] = useState({
     name: "",
     status: [],
@@ -26,6 +26,7 @@ const App = () => {
   });
 
   // fetch data; asynchronus
+
   // "useEffect function must return a cleanup function or nothing. Promises and useEffect(async () => ...) are not supported, but you can call an async function inside an effect... That's why using async directly in the useEffect function isn't allowed"
   useEffect(() => {
     const fetchData = async () => {
@@ -35,15 +36,24 @@ const App = () => {
     fetchData();
   }, []);
 
-  const renderCharacterDetails = (props) => {
-    const route = props.match.params.route;
-    const character = characters.find((character) => character.route === route);
-    return character ? (
-      <CharacterDetails character={character} />
-    ) : (
-      <CharacterNotFound />
-    );
+  // additional data to pass through props
+
+  const getSpecies = () => {
+    const species = characters.map((character) => character.species);
+    return [...new Set(species)];
   };
+
+  const getStatus = () => {
+    const status = characters.map((character) => character.status);
+    return [...new Set(status)];
+  };
+
+  const getOrigin = () => {
+    const origin = characters.map((character) => character.origin);
+    return [...new Set(origin)];
+  };
+
+  // filter results' list
 
   const filterResults = (inputData) => {
     // console.log(inputData);
@@ -73,44 +83,6 @@ const App = () => {
       ? filterByName(inputData)
       : filterByCheckbox(inputData);
   };
-
-  // console.log(filters);
-
-  // const filterByName = (inputData) => {
-  //   setName(inputData.value);
-  // };
-
-  // const filterBy = (inputData) => {
-  //   // console.log(inputData);
-  //   if (inputData.key === "species") {
-  //     const indexSpecie = species.indexOf(inputData.value);
-  //     if (indexSpecie === -1) {
-  //       setSpecies([...species, inputData.value]);
-  //     } else {
-  //       const newSpecies = [...species];
-  //       newSpecies.splice(indexSpecie, 1);
-  //       setSpecies(newSpecies);
-  //     }
-  //   } else if (inputData.key === "status") {
-  //     const indexStatus = status.indexOf(inputData.value);
-  //     if (indexStatus === -1) {
-  //       setStatus([...status, inputData.value]);
-  //     } else {
-  //       const newStatus = [...status];
-  //       newStatus.splice(indexStatus, 1);
-  //       setStatus(newStatus);
-  //     }
-  //   } else if (inputData.key === "origin") {
-  //     const indexOrigin = origin.indexOf(inputData.value);
-  //     if (indexOrigin === -1) {
-  //       setOrigin([...origin, inputData.value]);
-  //     } else {
-  //       const newOrigin = [...origin];
-  //       newOrigin.splice(indexOrigin, 1);
-  //       setOrigin(newOrigin);
-  //     }
-  //   }
-  // };
 
   const sortResults = (a, b) => {
     const nameA = a.name.toLowerCase();
@@ -145,19 +117,16 @@ const App = () => {
         : filters.origin.includes(character.origin);
     });
 
-  const getSpecies = () => {
-    const species = characters.map((character) => character.species);
-    return [...new Set(species)];
-  };
+  // render page content
 
-  const getStatus = () => {
-    const status = characters.map((character) => character.status);
-    return [...new Set(status)];
-  };
-
-  const getOrigin = () => {
-    const origin = characters.map((character) => character.origin);
-    return [...new Set(origin)];
+  const renderCharacterDetails = (props) => {
+    const route = props.match.params.route;
+    const character = characters.find((character) => character.route === route);
+    return character ? (
+      <CharacterDetails character={character} />
+    ) : (
+      <CharacterNotFound />
+    );
   };
 
   // console.log(searchResults);
@@ -168,17 +137,15 @@ const App = () => {
         <Route exact path="/">
           <Filters
             filters={filters}
-            // filterByName={filterByName}
             inputValue={filters.name}
             status={getStatus()}
             species={getSpecies()}
             origin={getOrigin()}
-            // filterBy={filterBy}
             filterResults={filterResults}
           />
           <CharacterList searchResults={searchResults} />
         </Route>
-        <Route path="/:route" render={renderCharacterDetails} />
+        <Route path="/characters/:route" render={renderCharacterDetails} />
       </Switch>
     </main>
   );

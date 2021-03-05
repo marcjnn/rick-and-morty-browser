@@ -2,7 +2,7 @@
 import "../style/components/CharacterNotFound.scss";
 import errorIMG from "../assets/images/error404.jpeg";
 
-const CharacterNotFound = () => {
+const CharacterNotFound = (props) => {
   return (
     <article className="error">
       <h2>404... Whoops...</h2>
