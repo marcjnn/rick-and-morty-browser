@@ -1,5 +1,6 @@
 // styles & resources
 import "../style/components/CharacterList.scss";
+import icons from "../assets/icons";
 
 // React
 import { Link } from "react-router-dom";
@@ -12,15 +13,15 @@ const CharacterList = (props) => {
     return (
       <li key={character.id}>
         <Link className="results__link" to={`/characters/${character.route}`}>
-          <CharacterCard character={character} icons={props.icons} />
+          <CharacterCard character={character} icons={icons} />
         </Link>
       </li>
     );
   });
 
   return props.searchResults.length === 0 ? (
-    <p>
-      The horror!!! There is no characters matching your criteria" ¯\_(ツ)_/¯
+    <p className="results--nomatch">
+      There are no characters matching your criteria
     </p>
   ) : (
     <ul className="results">{characterList}</ul>

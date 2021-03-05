@@ -1,4 +1,4 @@
-import errorIMG from "../images/error404.jpeg";
+import errorIMG from "../assets/images/error404.jpeg";
 
 const CharacterNotFound = () => {
   return (

@@ -1,0 +1,5 @@
+@font-face {
+  font-family: "Get Schwifty";
+  src: local("Get Schwifty"),
+    url(../assets/fonts/get_schwifty.ttf) format("truetype");
+}

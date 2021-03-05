@@ -20,4 +20,27 @@
     color: white;
     text-decoration: none;
   }
+  &--nomatch {
+    width: 80vw;
+    max-width: max-content;
+    padding: 2vw;
+    background-color: $colorMain;
+    border: 3px solid $colorBgrWarm;
+    border-radius: 8px;
+    position: relative;
+    font-family: "Get Schwifty", $fontMain;
+    font-size: 18px;
+    line-height: 2.3;
+    text-align: center;
+    letter-spacing: 2px;
+  }
+}
+
+.nomatch {
+  &--linebreak {
+    display: block;
+  }
+  &--horror {
+    font-family: "Get Schwifty", $fontMain;
+  }
 }

@@ -1,6 +1,6 @@
 // styles & resources
 import "../style/components/CharacterDetails.scss";
-import icons from "../services/icons";
+import icons from "../assets/icons";
 
 // React
 import { Link } from "react-router-dom";
