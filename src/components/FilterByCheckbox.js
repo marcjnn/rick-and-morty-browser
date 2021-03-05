@@ -2,9 +2,11 @@
 import "../style/components/FilterByCheckbox.scss";
 
 // React
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 const FilterByCheckbox = (props) => {
+  const [hidden, setHidden] = useState(window.innerWidth < 768 ? "hidden" : "");
   // console.log(props);
   const handleChange = (ev) => {
     props.filterResults({ key: props.filter, value: ev.target.value });
@@ -26,12 +28,18 @@ const FilterByCheckbox = (props) => {
       </li>
     );
   });
+
+  const handleClick = () => {
+    if (window.innerWidth < 768) {
+      setHidden(hidden === "hidden" ? "" : "hidden");
+    }
+  };
   return (
     <fieldset className="filter__section">
-      <legend className="filter__title">
+      <legend className="filter__title" onClick={handleClick}>
         {props.icon} filter by {props.filter}
       </legend>
-      <ul>{items}</ul>
+      <ul className={hidden}>{items}</ul>
     </fieldset>
   );
 };

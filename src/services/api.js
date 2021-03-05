@@ -1,4 +1,4 @@
-const ENDPOINT = "https://rickandmortyapi.com/api/character";
+const ENDPOINT = "//rickandmortyapi.com/api/character";
 
 let fetchCharacters = async () => {
   const response = await fetch(ENDPOINT);

@@ -13,7 +13,7 @@ const FilterByName = (props) => {
     });
   };
   return (
-    <div className="nameFilter">
+    <fieldset className="nameFilter">
       <label className="search__label" htmlFor="searchByName">
         {icons.signature} name
       </label>
@@ -25,7 +25,7 @@ const FilterByName = (props) => {
         onChange={handleChange}
         placeholder="search"
       />
-    </div>
+    </fieldset>
   );
 };
 

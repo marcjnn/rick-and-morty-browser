@@ -153,6 +153,9 @@ const App = () => {
               <CharacterList searchResults={searchResults} />
             </Route>
             <Route path="/characters/:route" render={renderCharacterDetails} />
+            <Route path="/">
+              <CharacterNotFound />
+            </Route>
           </Switch>
         </>
       )}
