@@ -11,7 +11,7 @@ import ReturnLink from "./ReturnLink";
 const CharacterDetails = (props) => {
   const character = props.character;
   return (
-    <div>
+    <div className="card__detail--container">
       <ReturnLink icon={icons.doublearrow} />
       <article className="card__detail">
         <img

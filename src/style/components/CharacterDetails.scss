@@ -20,6 +20,11 @@
     @include media-m-breakpoint {
       max-width: 700px;
     }
+    &--container {
+      .return__link {
+        text-align: right;
+      }
+    }
   }
 }
 
@@ -66,23 +71,6 @@
     }
     &--thin {
       font-weight: 300;
-    }
-  }
-}
-
-.return {
-  &__link {
-    font-family: $fontTitle;
-    display: block;
-    margin: 30px 0 10px;
-    text-decoration: none;
-    color: $colorBgrWarm;
-  }
-  &__button {
-    display: inline-flex;
-    align-items: center;
-    &--btn {
-      padding-left: 5px;
     }
   }
 }

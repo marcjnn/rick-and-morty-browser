@@ -1,3 +1,6 @@
+// styles & resources
+import "../style/components/FilterByName.scss";
+
 // React
 import PropTypes from "prop-types";
 
