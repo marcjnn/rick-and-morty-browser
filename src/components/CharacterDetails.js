@@ -5,16 +5,20 @@ import icons from "../assets/icons";
 // React
 import { Link } from "react-router-dom";
 
+// components
+import ReturnLink from "./ReturnLink";
+
 const CharacterDetails = (props) => {
   const character = props.character;
   return (
     <div>
-      <Link className="return__link" to="/">
+      <ReturnLink text="return" icon={icons.doublearrow} route="/" />
+      {/* <Link className="return__link" to="/">
         <p className="return__button">
           {icons.doublearrow}
           <span className="return__button--btn">return</span>
         </p>
-      </Link>
+      </Link> */}
       <article className="card__detail">
         <img
           className="detail__image"
