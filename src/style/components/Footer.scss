@@ -1,0 +1,16 @@
+@import "../core/_variables";
+@import "../core/_mixins";
+@import "../core/_reset";
+
+.footer {
+  background-color: black;
+  padding: 2vw;
+  display: flex;
+  justify-content: flex-end;
+  color: $colorBgrWarm;
+  font-family: $fontMain;
+  &__link {
+    text-decoration: none;
+    color: $colorBgrWarm;
+  }
+}
