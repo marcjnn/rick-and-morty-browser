@@ -1,0 +1,21 @@
+@import "../core/_variables";
+@import "../core/_mixins";
+@import "../core/_reset";
+
+.header {
+  width: 100%;
+  background-color: black;
+  padding: 5vw 0 0;
+  display: flex;
+  justify-content: center;
+  &__title {
+    display: none;
+  }
+  .logo {
+    width: 70vw;
+    @include media-s-breakpoint {
+      width: 50vw;
+      max-width: 420px;
+    }
+  }
+}

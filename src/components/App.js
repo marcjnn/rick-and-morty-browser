@@ -1,6 +1,5 @@
 // styles & resources
 import "../style/components/App.scss";
-import logo from "../assets/images/logo.png";
 
 // React
 import React, { useEffect, useState } from "react";
@@ -10,6 +9,7 @@ import { Route, Switch } from "react-router-dom";
 import api from "../services/api";
 
 // components
+import Header from "./Header";
 import Loader from "./Loader";
 import Filters from "./Filters";
 import CharacterList from "./CharacterList";
@@ -89,7 +89,7 @@ const App = () => {
     if (nameA > nameB) {
       return 1;
     }
-    return;
+    return 0;
   };
 
   const searchResults = characters
@@ -125,34 +125,34 @@ const App = () => {
     );
   };
 
+  const renderHomePage = () => {
+    return (
+      <Switch>
+        <Route exact path="/">
+          <Filters
+            filters={filters}
+            inputValue={filters.name}
+            status={getItems("status")}
+            species={getItems("species")}
+            origin={getItems("origin")}
+            filterResults={filterResults}
+          />
+          <CharacterList searchResults={searchResults} />
+        </Route>
+        <Route path="/characters/:route" render={renderCharacterDetails} />
+        <Route path="/">
+          <CharacterNotFound />
+        </Route>
+      </Switch>
+    );
+  };
+
   // console.log(searchResults);
   return (
-    <main className="main">
-      <img className="logo" src={logo} alt="Rick and Morty logo" />
-      {isLoading ? (
-        <Loader />
-      ) : (
-        <>
-          <Switch>
-            <Route exact path="/">
-              <Filters
-                filters={filters}
-                inputValue={filters.name}
-                status={getItems("status")}
-                species={getItems("species")}
-                origin={getItems("origin")}
-                filterResults={filterResults}
-              />
-              <CharacterList searchResults={searchResults} />
-            </Route>
-            <Route path="/characters/:route" render={renderCharacterDetails} />
-            <Route path="/">
-              <CharacterNotFound />
-            </Route>
-          </Switch>
-        </>
-      )}
-    </main>
+    <div className="app">
+      <Header />
+      <main className="main">{isLoading ? <Loader /> : renderHomePage()}</main>
+    </div>
   );
 };
 
