@@ -12,7 +12,7 @@ const CharacterList = (props) => {
   const characterList = props.searchResults.map((character) => {
     return (
       <li key={character.id}>
-        <Link className="results__link" to={`/characters/${character.route}`}>
+        <Link className="results__link" to={`/${character.route}`}>
           <CharacterCard character={character} icons={icons} />
         </Link>
       </li>

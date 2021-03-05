@@ -178,7 +178,7 @@ const App = () => {
           />
           <CharacterList searchResults={searchResults} />
         </Route>
-        <Route path="/characters/:route" render={renderCharacterDetails} />
+        <Route path="/:route" render={renderCharacterDetails} />
       </Switch>
     </main>
   );
