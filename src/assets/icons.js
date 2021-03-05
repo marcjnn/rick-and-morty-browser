@@ -9,6 +9,8 @@ import {
   faGlobeAmericas,
   faGhost,
   faStarOfLife,
+  faCopyright,
+  faAt,
 } from "@fortawesome/free-solid-svg-icons";
 
 const icons = {
@@ -25,6 +27,8 @@ const icons = {
   globe: <FontAwesomeIcon icon={faGlobeAmericas} className="reactIcon" />,
   ghost: <FontAwesomeIcon icon={faGhost} className="reactIcon" />,
   medical: <FontAwesomeIcon icon={faStarOfLife} className="reactIcon" />,
+  copyright: <FontAwesomeIcon icon={faCopyright} className="reactIcon" />,
+  at: <FontAwesomeIcon icon={faAt} className="reactIcon" />,
 };
 
 export default icons;

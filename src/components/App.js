@@ -10,6 +10,7 @@ import api from "../services/api";
 
 // components
 import Header from "./Header";
+import Footer from "./Footer";
 import Loader from "./Loader";
 import Filters from "./Filters";
 import CharacterList from "./CharacterList";
@@ -156,6 +157,7 @@ const App = () => {
     <div className="app">
       <Header />
       <main className="main">{isLoading ? <Loader /> : renderHomePage()}</main>
+      <Footer />
     </div>
   );
 };

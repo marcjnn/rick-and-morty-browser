@@ -16,11 +16,9 @@ const Filters = (props) => {
   // console.log(props);
   // console.log(props.filters);
 
-    return (
+  return (
     <form className="filters" onSubmit={handleSubmit} action="" methog="">
-      <h2 className="filters__title">
-        Filter by
-      </h2>
+      <h2 className="filters__title">Filter by</h2>
       <FilterByName
         inputValue={props.inputValue}
         filterResults={props.filterResults}
