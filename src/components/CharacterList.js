@@ -1,6 +1,5 @@
 // styles & resources
 import "../style/components/CharacterList.scss";
-import icons from "../assets/icons";
 
 // React
 import { Link } from "react-router-dom";
@@ -13,7 +12,7 @@ const CharacterList = (props) => {
     return (
       <li key={character.id}>
         <Link className="results__link" to={`/${character.route}`}>
-          <CharacterCard character={character} icons={icons} />
+          <CharacterCard character={character} />
         </Link>
       </li>
     );

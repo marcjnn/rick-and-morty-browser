@@ -1,5 +1,5 @@
 // styles & resources
-import { icon } from "@fortawesome/fontawesome-svg-core";
+import icons from "../assets/icons";
 import "../style/components/CharacterCard.scss";
 
 const CharacterCard = (props) => {
@@ -7,12 +7,12 @@ const CharacterCard = (props) => {
   console.log(props);
   const icon = () => {
     if (character.status === "alive") {
-      return props.icons.heartbeat;
+      return icons.heartbeat;
     }
     if (character.status === "dead") {
-      return props.icons.skull;
+      return icons.skull;
     }
-    return props.icons.questionmark;
+    return icons.questionmark;
   };
   return (
     <article className="results__card">
