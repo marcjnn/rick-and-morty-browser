@@ -4,20 +4,20 @@ import icons from "../assets/icons";
 
 const Footer = () => {
   return (
-    <footer class="footer">
-      <small class="copyright">
+    <footer className="footer">
+      <small className="copyright">
         {icons.copyright}{" "}
         <a
           href="https://github.com/marcjnn"
           title="check github profile"
-          class="footer__link"
+          className="footer__link"
         >
           marcjnn
         </a>{" "}
         2021 {icons.at}{" "}
         <a
           href="https://adalab.es/"
-          class="footer__link"
+          className="footer__link"
           title="visit adalab.es"
         >
           Adalab

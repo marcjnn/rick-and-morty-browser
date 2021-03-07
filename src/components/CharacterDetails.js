@@ -12,6 +12,7 @@ const CharacterDetails = (props) => {
   const character = props.character;
   return (
     <div className="card__detail--container">
+      {/* ReturnLink has defaultProps set up, so only icon necesary */}
       <ReturnLink icon={icons.doublearrow} />
       <article className="card__detail">
         <img

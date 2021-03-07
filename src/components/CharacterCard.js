@@ -7,6 +7,8 @@ import PropTypes from "prop-types";
 
 const CharacterCard = (props) => {
   const character = props.character;
+
+  // decide which icon to use depending on character's status
   const icon = () => {
     if (character.status === "alive") {
       return icons.heartbeat;
@@ -16,6 +18,7 @@ const CharacterCard = (props) => {
     }
     return icons.questionmark;
   };
+
   return (
     <article className="results__card">
       <img className="card__image" src={character.image} alt={character.name} />
