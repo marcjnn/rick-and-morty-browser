@@ -47,14 +47,13 @@ const App = () => {
 
   // getItems - to get species, status, origin - one function to rule them all
 
-  const getItems = (key) => {
+  const getCheckboxLabels = (key) => {
     return [...new Set(characters.map((character) => character[key]))];
   };
 
   // filter results' list
 
   const filterResults = (inputData) => {
-    // console.log(inputData);
     const filterByName = (inputData) => {
       return setFilters({ ...filters, [inputData.key]: inputData.value });
     };
@@ -81,6 +80,8 @@ const App = () => {
       ? filterByName(inputData)
       : filterByCheckbox(inputData);
   };
+
+  // prepare data to render - apply filters
 
   const sortResults = (a, b) => {
     const nameA = a.name.toLowerCase();
@@ -136,9 +137,9 @@ const App = () => {
             <Filters
               filters={filters}
               inputValue={filters.name}
-              status={getItems("status")}
-              species={getItems("species")}
-              origin={getItems("origin")}
+              status={getCheckboxLabels("status")}
+              species={getCheckboxLabels("species")}
+              origin={getCheckboxLabels("origin")}
               filterResults={filterResults}
             />
             <CharacterList searchResults={searchResults} />
@@ -152,7 +153,6 @@ const App = () => {
     );
   };
 
-  // console.log(searchResults);
   return (
     <div className="app">
       <Header />

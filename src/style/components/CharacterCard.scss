@@ -3,11 +3,10 @@
 @import "../core/_reset";
 
 .results {
-  // results only fo ranidation purposes, no adding styles here
+  // results only for anidation purposes, no adding styles here
   &__card {
     width: 65vw;
     height: 100%;
-    // margin: 2vh 0;
     background-color: $colorMain;
     border: 3px solid $colorBgrWarm;
     border-radius: 8px;

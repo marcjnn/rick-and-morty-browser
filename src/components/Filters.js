@@ -10,11 +10,10 @@ import FilterByName from "./FilterByName";
 import FilterByCheckbox from "./FilterByCheckbox";
 
 const Filters = (props) => {
+  // preventing submiting a form with enter key
   const handleSubmit = (ev) => {
     ev.preventDefault();
   };
-  // console.log(props);
-  // console.log(props.filters);
 
   return (
     <form className="filters" onSubmit={handleSubmit} action="" methog="">

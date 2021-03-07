@@ -6,11 +6,22 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 const FilterByCheckbox = (props) => {
+  // on mobile devices, filter options will be hidden for better user experience
   const [hidden, setHidden] = useState(window.innerWidth < 768 ? "hidden" : "");
 
+  // show/hide filter options
+  const handleClick = () => {
+    if (window.innerWidth < 768) {
+      setHidden(hidden === "hidden" ? "" : "hidden");
+    }
+  };
+
+  // for individual checkbox
   const handleChange = (ev) => {
     props.filterResults({ key: props.filter, value: ev.target.value });
   };
+
+  // rendering list of label + checkbox
   const items = props.filterby.map((item, index) => {
     return (
       <li key={index}>
@@ -29,11 +40,6 @@ const FilterByCheckbox = (props) => {
     );
   });
 
-  const handleClick = () => {
-    if (window.innerWidth < 768) {
-      setHidden(hidden === "hidden" ? "" : "hidden");
-    }
-  };
   return (
     <fieldset className="filter__section">
       <legend className="filter__title" onClick={handleClick}>
