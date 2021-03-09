@@ -10,6 +10,7 @@ let fetchCharacters = async () => {
       status: character.status.toLowerCase(),
       species: character.species.toLowerCase(),
       origin: character.origin.name,
+      location: character.location.name,
       image: character.image,
       episodes: character.episode.length,
       route: character.name.split(" ").join("-").toLowerCase(),

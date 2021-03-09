@@ -26,6 +26,7 @@ const App = () => {
     status: [],
     species: [],
     origin: [],
+    inorigin: false,
   });
   const [isLoading, setIsLoading] = useState(true);
 
@@ -81,6 +82,12 @@ const App = () => {
       : filterByCheckbox(inputData);
   };
 
+  // inorigin true to false
+
+  const isInOrigin = (bool) => {
+    setFilters({ ...filters, inorigin: bool });
+  };
+
   // prepare data to render - apply filters
 
   const sortResults = (a, b) => {
@@ -114,8 +121,12 @@ const App = () => {
       return filters.origin.length === 0
         ? true
         : filters.origin.includes(character.origin);
+    })
+    .filter((character) => {
+      return filters.inorigin === true
+        ? character.origin === character.location
+        : true;
     });
-
   // render page content
 
   const renderCharacterDetails = (props) => {
@@ -141,6 +152,7 @@ const App = () => {
               species={getCheckboxLabels("species")}
               origin={getCheckboxLabels("origin")}
               filterResults={filterResults}
+              isInOrigin={isInOrigin}
             />
             <CharacterList searchResults={searchResults} />
           </Route>

@@ -8,12 +8,15 @@ import PropTypes from "prop-types";
 // components
 import FilterByName from "./FilterByName";
 import FilterByCheckbox from "./FilterByCheckbox";
+import FilterInOrigin from "./FilterInOrigin";
 
 const Filters = (props) => {
   // preventing submiting a form with enter key
   const handleSubmit = (ev) => {
     ev.preventDefault();
   };
+
+  console.log(props);
 
   return (
     <form className="filters" onSubmit={handleSubmit} action="" methog="">
@@ -43,6 +46,7 @@ const Filters = (props) => {
         filterResults={props.filterResults}
         icon={icons.globe}
       />
+      <FilterInOrigin filters={props.filters} isInOrigin={props.isInOrigin} />
     </form>
   );
 };
