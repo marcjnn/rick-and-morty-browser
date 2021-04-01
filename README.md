@@ -1,4 +1,4 @@
-# Evaluación final - modulo 3 - React
+# Rick & Morty - a SPA created with React
 
 I created this project during [Adalab Bootcamp](https://adalab.es/), at the end of React module.
 
